@@ -1,0 +1,12 @@
+A=[1,0,1,0,1,0,1]
+print(A)
+pos = int(input("Enter the position for flip:"))
+if pos < len(A):
+    if A[pos] == 1:
+        A[pos] = 0
+    else:
+        A[pos] = 1
+        print("Flipped")
+else:
+    print("Position is greater than size cannot be flipped")
+print(A)
