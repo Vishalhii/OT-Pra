@@ -1,0 +1,16 @@
+grid=[ [5, 1, 9] , [4,2, 8], [8,7, 2] ]
+supply= [300, 600,600]
+demand=[150,450,900]
+startR=0
+startC=0
+ans=0
+while (startR != len (grid) and startC != len (grid[0])):
+    if (supply[startR] <= demand[startC]):
+        ans += supply[startR] * grid[startR][startC]
+        demand[startC] -= supply[startR]
+        startR += 1
+    else:
+        ans += demand[startC] * grid [startR][startC]
+        supply[startR] -= demand[startC]
+        startC += 1
+print ("The initial fteasible basic solution is ",ans)
