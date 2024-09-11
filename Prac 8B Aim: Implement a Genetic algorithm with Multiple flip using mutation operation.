@@ -1,0 +1,14 @@
+a=[1,0,1,0,1,0,1]
+print(a)
+p=list(map(int,input("Enter multiple positions: ").split()))
+for i in p:
+    if i<len(a):
+        if a[i] == 1:
+            a[i] = 0
+        else:
+            a[i] =1
+        print("Flipped")
+    else:
+            print("position is greater than size cannot flip")
+print(a)
+
