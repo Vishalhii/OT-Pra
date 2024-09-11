@@ -1,0 +1,21 @@
+import pulp as p
+# craete a problem instance
+Lp_prob = p.LpProblem('problem', p.LpMinimize)
+# create decision variable
+x = p.LpVariable("x", lowBound=0)
+y = p.LpVariable("y", lowBound=0)
+# objective function
+Lp_prob += 3*x + 5*y
+# Constraints
+Lp_prob += 2*x + 3*y >= 12, "Constraint_1"
+Lp_prob += -x + y <= 3, "Constraint_2"
+Lp_prob += x >= 4, "Constraint_3"
+Lp_prob += y <= 3, "Constraint_4"
+# print the problem
+print(Lp_prob)
+# solve the problem
+status = Lp_prob.solve()
+# print the status of the solution
+print(p.LpStatus[status])
+# print the values of the variables at tha optimum
+print(p.value(x), p.value(y), p.value(Lp_prob.objective))
