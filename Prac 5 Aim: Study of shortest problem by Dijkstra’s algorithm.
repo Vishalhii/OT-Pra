@@ -1,0 +1,32 @@
+class Graph:
+    def __init__(self,vertices):
+        self.V = vertices
+        self.graph = [[0 for _ in range(vertices)]for _ in range(vertices)]
+
+    def print_solution(self,dist):
+        print("Vertex Distance from source")
+        for node,d in enumerate(dist):
+            print(node,"t",d)
+
+    def min_distance(self,dist,spt_set):
+        return min((dist[V],V) for V in range(self.V) if not spt_set[V])[1]
+
+    def dijkstra(self,src):
+        dist = [float('inf')]*self.V
+        dist[src] = 0
+        spt_set = [False]*self.V
+        for _ in range(self.V):
+            u = self.min_distance(dist,spt_set)
+            spt_set[u] = True
+            for V in range(self.V):
+                if self.graph[u][v]
+
+g = Graph(6)
+g.graph = [
+    [0,4,2,0,0,0],
+    [4,0,1,5,0,0],
+    [2,1,0,8,10,0],
+    [0,5,8,0,2,6],
+    [0,0,10,2,0,5],
+    [0,0,0,6,5,0]]
+g.dijkstra(0)
